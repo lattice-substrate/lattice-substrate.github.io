@@ -4,6 +4,12 @@ layout: default
 <article class="post">
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.series %}
+    {% assign series_posts = site.posts | where: "series", page.series | sort: "part" %}
+    {% endif %}
+    {% if page.part and page.series %}
+    <p class="post-part">Part {{ page.part }} of {{ series_posts | size }}</p>
+    {% endif %}
     <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
     {% if page.series %}<p class="post-series">Part of the series: <em>{{ page.series }}</em></p>{% endif %}
   </header>

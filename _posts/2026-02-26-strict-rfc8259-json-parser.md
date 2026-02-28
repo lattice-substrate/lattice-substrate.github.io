@@ -3,6 +3,7 @@ layout: post
 title: "What Your JSON Parser Doesn't Reject: Building a Strict RFC 8259 Parser in Go"
 date: 2026-02-26
 series: "Building Infrastructure-Grade JSON Canonicalization in Go"
+part: 2
 tags: [go, parsing, json]
 description: "809 lines of Go that enforce every constraint in RFC 8259. Surrogate pair validation, noncharacter detection, duplicate key rejection after escape decoding, and seven independent resource bounds — everything encoding/json silently accepts."
 ---

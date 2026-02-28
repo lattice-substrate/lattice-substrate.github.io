@@ -3,6 +3,7 @@ layout: post
 title: "Proving Determinism: Evidence-Based Release Engineering"
 date: 2026-02-24
 series: "Building Infrastructure-Grade JSON Canonicalization in Go"
+part: 4
 tags: [go, devops, testing]
 description: "Unit tests don't prove determinism. An offline replay harness that runs canonical operations across distributions and architectures, captures cryptographic evidence, and gates releases on byte-identical output."
 ---
