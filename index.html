@@ -1,12 +1,27 @@
 ---
 layout: default
 ---
-<h1>Blog</h1>
-<ul class="post-list">
+
+<section class="site-intro">
+  <p class="intro-label">A four-part engineering series</p>
+  <h1 class="intro-title">Building Infrastructure-Grade JSON Canonicalization in Go</h1>
+  <div class="intro-body">
+    <p><a href="https://github.com/lattice-substrate/json-canon">json-canon</a> is a Go library for <a href="https://www.rfc-editor.org/rfc/rfc8785">RFC 8785</a> JSON Canonicalization Scheme. It exists because deterministic serialization is a harder problem than it appears — and because the infrastructure that depends on it deserves more than <em>the tests pass</em> as a correctness argument.</p>
+    <p>These articles document what it took to build: the algorithms, the parser, the architectural decisions that separate a library from dependable infrastructure, and the evidence-based release process that proves the output is actually deterministic. Each article is self-contained, but together they trace the full arc from specification compliance to provable correctness.</p>
+  </div>
+</section>
+
+<section class="articles">
   {% for post in site.posts %}
-  <li>
-    <h2 class="post-list-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-    <p class="post-list-meta">{{ post.date | date: "%B %-d, %Y" }}{% if post.series %} &middot; {{ post.series }}{% endif %}</p>
-  </li>
+  <article class="article-card">
+    <time class="article-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+    <h2 class="article-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+    {% if post.description %}<p class="article-description">{{ post.description }}</p>{% endif %}
+    <p class="article-read"><a href="{{ post.url | relative_url }}">Read article &rarr;</a></p>
+  </article>
   {% endfor %}
-</ul>
+</section>
+
+<section class="site-coda">
+  <p>json-canon is open source at <a href="https://github.com/lattice-substrate/json-canon">github.com/lattice-substrate/json-canon</a>. Pure Go. Zero external dependencies. Strict JSON parsing, RFC 8785 canonical serialization, and a stable CLI for machine automation.</p>
+</section>

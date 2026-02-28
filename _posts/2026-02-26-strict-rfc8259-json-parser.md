@@ -4,6 +4,7 @@ title: "What Your JSON Parser Doesn't Reject: Building a Strict RFC 8259 Parser 
 date: 2026-02-26
 series: "Building Infrastructure-Grade JSON Canonicalization in Go"
 tags: [go, parsing, json]
+description: "809 lines of Go that enforce every constraint in RFC 8259. Surrogate pair validation, noncharacter detection, duplicate key rejection after escape decoding, and seven independent resource bounds — everything encoding/json silently accepts."
 ---
 
 Most JSON parsers are lenient by design. They accept input that RFC 8259 forbids, because lenient parsing is convenient and rarely causes visible problems. But when your downstream depends on deterministic processing — canonical signatures, content-addressed storage, reproducible builds — leniency is a defect. A value silently accepted by one parser and rejected by another breaks your contract.

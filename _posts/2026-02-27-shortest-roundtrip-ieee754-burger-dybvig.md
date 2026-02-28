@@ -4,6 +4,7 @@ title: "Shortest Round-Trip: Implementing IEEE 754 to Decimal Conversion in Go"
 date: 2026-02-27
 series: "Building Infrastructure-Grade JSON Canonicalization in Go"
 tags: [go, algorithms, ieee754]
+description: "The Burger-Dybvig algorithm in Go — finding the shortest decimal string that round-trips to the original IEEE 754 binary value, with ECMA-262 tie-breaking rules, validated against 286,362 oracle test vectors."
 ---
 
 Every programmer has seen this:

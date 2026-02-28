@@ -75,7 +75,124 @@ body {
   color: var(--fg);
 }
 
-/* Post list (index) */
+/* Site intro (landing page) */
+.site-intro {
+  margin-bottom: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.intro-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--fg-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.intro-title {
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 1.25rem;
+}
+
+.intro-body p {
+  color: var(--fg-secondary);
+  margin-bottom: 0.75rem;
+  line-height: 1.65;
+}
+
+.intro-body p:last-child {
+  margin-bottom: 0;
+}
+
+.intro-body a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.intro-body a:hover {
+  text-decoration: underline;
+}
+
+/* Article cards (index) */
+.articles {
+  margin-bottom: 3rem;
+}
+
+.article-card {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.article-card:first-child {
+  padding-top: 0;
+}
+
+.article-date {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--fg-secondary);
+  margin-bottom: 0.35rem;
+}
+
+.article-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+.article-title a {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.article-title a:hover {
+  color: var(--accent);
+}
+
+.article-description {
+  font-size: 0.92rem;
+  color: var(--fg-secondary);
+  line-height: 1.55;
+  margin-bottom: 0.5rem;
+}
+
+.article-read {
+  font-size: 0.85rem;
+}
+
+.article-read a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.article-read a:hover {
+  text-decoration: underline;
+}
+
+/* Coda (bottom section) */
+.site-coda {
+  padding-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--fg-secondary);
+  line-height: 1.55;
+}
+
+.site-coda a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.site-coda a:hover {
+  text-decoration: underline;
+}
+
+/* Post list (legacy, kept for compatibility) */
 .post-list {
   list-style: none;
 }

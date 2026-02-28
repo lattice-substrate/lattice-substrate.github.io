@@ -4,6 +4,7 @@ title: "The Small Decisions That Make Software Infrastructure-Grade"
 date: 2026-02-25
 series: "Building Infrastructure-Grade JSON Canonicalization in Go"
 tags: [go, architecture, engineering]
+description: "UTF-16 code-unit key sorting, a thirteen-class failure taxonomy with stable exit codes, and machine-readable ABI contracts. The marginal decisions that define whether downstream systems can depend on you without reservations."
 ---
 
 Infrastructure-grade software isn't defined by one big architectural choice. It's defined by getting dozens of small decisions right — decisions that most projects skip because they seem unimportant until they aren't.
