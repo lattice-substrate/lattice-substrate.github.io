@@ -1,0 +1,17 @@
+title: Lattice Substrate
+description: Engineering blog
+url: "https://lattice-substrate.github.io"
+baseurl: ""
+
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+permalink: /blog/:year/:month/:day/:title/
+
+exclude:
+  - README.md
+  - LICENSE
