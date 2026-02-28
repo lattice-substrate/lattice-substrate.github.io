@@ -6,6 +6,7 @@ series: "Building Infrastructure-Grade JSON Canonicalization in Go"
 part: 4
 tags: [go, devops, testing]
 description: "Unit tests don't prove determinism. An offline replay harness that runs canonical operations across distributions and architectures, captures cryptographic evidence, and gates releases on byte-identical output."
+canonical_url: "https://lattice-substrate.github.io/blog/2026/02/24/proving-determinism-evidence-release/"
 ---
 
 Any project can claim deterministic output. "Our tests pass" is not a determinism proof. It's a confidence signal from one machine, one OS, one kernel, at one point in time.
