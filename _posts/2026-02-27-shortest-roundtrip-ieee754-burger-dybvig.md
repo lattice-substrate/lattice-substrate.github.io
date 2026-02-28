@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Shortest Round-Trip: Implementing IEEE 754 to Decimal Conversion in Go"
-date: 2026-03-06
+date: 2026-02-27
 series: "Building Infrastructure-Grade JSON Canonicalization in Go"
 tags: [go, algorithms, ieee754]
 ---

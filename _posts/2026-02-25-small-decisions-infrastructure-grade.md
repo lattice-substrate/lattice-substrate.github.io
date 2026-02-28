@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Small Decisions That Make Software Infrastructure-Grade"
-date: 2026-03-20
+date: 2026-02-25
 series: "Building Infrastructure-Grade JSON Canonicalization in Go"
 tags: [go, architecture, engineering]
 ---

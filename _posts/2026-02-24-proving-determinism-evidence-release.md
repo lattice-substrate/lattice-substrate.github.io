@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Proving Determinism: Evidence-Based Release Engineering"
-date: 2026-03-27
+date: 2026-02-24
 series: "Building Infrastructure-Grade JSON Canonicalization in Go"
 tags: [go, devops, testing]
 ---

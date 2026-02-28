@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "What Your JSON Parser Doesn't Reject: Building a Strict RFC 8259 Parser in Go"
-date: 2026-03-13
+date: 2026-02-26
 series: "Building Infrastructure-Grade JSON Canonicalization in Go"
 tags: [go, parsing, json]
 ---
