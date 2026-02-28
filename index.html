@@ -5,47 +5,60 @@ layout: default
 {% assign series_posts = site.posts | where: "series", series_name | sort: "part" %}
 
 <section class="site-intro">
-  <p class="intro-label">A four-part engineering series</p>
+  <p class="intro-label">Why deterministic serialization matters</p>
   <h1 class="intro-title">Building Infrastructure-Grade JSON Canonicalization in Go</h1>
   <div class="intro-body">
-    <p><a href="https://github.com/lattice-substrate/json-canon">json-canon</a> is a Go library for <a href="https://www.rfc-editor.org/rfc/rfc8785">RFC 8785</a> JSON Canonicalization Scheme. It exists because deterministic serialization is a harder problem than it appears — and because the infrastructure that depends on it deserves more than <em>the tests pass</em> as a correctness argument.</p>
-    <p>These articles document what it took to build: the algorithms, the parser, the architectural decisions that separate a library from dependable infrastructure, and the evidence-based release process that proves the output is actually deterministic. Each article is self-contained, but together they trace the full arc from specification compliance to provable correctness.</p>
-    <p class="intro-audience">New to canonicalization or to this project? Start with Part 1 and follow the sequence.</p>
+    <p>When two systems produce different bytes for the same JSON value, signatures break, content-addressed storage diverges, and reproducible builds aren't reproducible. Deterministic serialization is a harder problem than it appears — and the infrastructure that depends on it deserves more than <em>the tests pass</em> as proof.</p>
+    <p><a href="https://github.com/lattice-substrate/json-canon">json-canon</a> is a Go implementation of <a href="https://www.rfc-editor.org/rfc/rfc8785">RFC 8785</a> JSON Canonicalization Scheme built to that standard. These articles document what it took: the algorithms, the parser, the architectural decisions, and the evidence-based release process that proves the output is actually deterministic.</p>
+    <p class="intro-audience">Each article is self-contained, but together they trace the full arc from specification compliance to provable correctness.</p>
   </div>
   <div class="intro-actions">
     <a class="button button-primary" href="{{ series_posts.first.url | relative_url }}">Start with Part 1</a>
-    <a class="button button-secondary" href="https://github.com/lattice-substrate/json-canon">View GitHub</a>
+    <a class="button button-secondary" href="https://github.com/lattice-substrate/json-canon">View on GitHub</a>
   </div>
   <ul class="trust-bar">
-    <li>RFC 8785 canonicalization target</li>
-    <li>Strict RFC 8259 parser behavior</li>
-    <li>Determinism evidence gates</li>
-    <li>Stable machine-facing CLI contract</li>
+    <li>RFC 8785 compliant, clause-cited</li>
+    <li>Rejects every input encoding/json silently accepts</li>
+    <li>Byte-identical output proved across architectures</li>
+    <li>Stable CLI with SemVer-governed ABI</li>
   </ul>
 </section>
 
 <section class="articles">
   <div class="articles-intro">
-    <h2 class="articles-heading">Series Articles</h2>
-    <p class="articles-subheading">Recommended reading order for first-time developers.</p>
+    <h2 class="articles-heading">The Series</h2>
+    <p class="articles-subheading">Four articles covering the full engineering arc, from IEEE 754 formatting to evidence-gated releases.</p>
   </div>
   {% for post in series_posts %}
   <article class="article-card">
     <a class="article-card-link" href="{{ post.url | relative_url }}" aria-label="Part {{ post.part }}: {{ post.title }}">
-      <p class="article-part">Part {{ post.part }} of {{ series_posts.size }}</p>
-      <time class="article-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
-      <h3 class="article-title">{{ post.title }}</h3>
-      {% if post.description %}<p class="article-description">{{ post.description }}</p>{% endif %}
-      {% if post.tags.size > 0 %}
-      <div class="article-tags" aria-label="Article topics">
-        {% for tag in post.tags %}<span class="article-tag">{{ tag }}</span>{% endfor %}
+      <span class="article-part-number">{{ post.part | prepend: '0' | slice: -2, 2 }}</span>
+      <div class="article-card-content">
+        <div class="article-meta">
+          <p class="article-part">Part {{ post.part }} of {{ series_posts.size }}</p>
+          <span class="article-meta-sep">|</span>
+          <time class="article-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+          <span class="article-meta-sep">|</span>
+          <span class="article-reading-time">{% assign words = post.content | number_of_words %}{% assign minutes = words | divided_by: 200 %}{% if minutes < 1 %}1{% else %}{{ minutes }}{% endif %} min read</span>
+        </div>
+        <h3 class="article-title">{{ post.title }}</h3>
+        {% if post.description %}<p class="article-description">{{ post.description }}</p>{% endif %}
+        {% if post.tags.size > 0 %}
+        <div class="article-tags" aria-label="Article topics">
+          {% for tag in post.tags %}<span class="article-tag">{{ tag }}</span>{% endfor %}
+        </div>
+        {% endif %}
       </div>
-      {% endif %}
     </a>
   </article>
   {% endfor %}
 </section>
 
+<section class="site-about">
+  <h2 class="site-about-heading">About Lattice Substrate</h2>
+  <p>Lattice Substrate builds foundational infrastructure libraries where correctness is the product. We focus on deterministic data processing, standards-grade conformance tooling, and engineering practices that produce evidence of correctness — not just confidence. <a href="https://github.com/lattice-substrate">github.com/lattice-substrate</a></p>
+</section>
+
 <section class="site-coda">
-  <p>json-canon is open source at <a href="https://github.com/lattice-substrate/json-canon">github.com/lattice-substrate/json-canon</a>. Pure Go, zero external dependencies. Strict JSON parsing, RFC 8785 canonical serialization, and a stable CLI for machine automation.</p>
+  <p>json-canon is open source at <a href="https://github.com/lattice-substrate/json-canon">github.com/lattice-substrate/json-canon</a>. Pure Go, zero external dependencies, 286,362 oracle test vectors, and an offline replay harness that proves byte-identical output across distributions and architectures before every release.</p>
 </section>

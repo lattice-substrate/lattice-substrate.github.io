@@ -3,17 +3,46 @@ layout: default
 ---
 <article class="post">
   <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
     {% if page.series %}
     {% assign series_posts = site.posts | where: "series", page.series | sort: "part" %}
     {% endif %}
     {% if page.part and page.series %}
     <p class="post-part">Part {{ page.part }} of {{ series_posts | size }}</p>
     {% endif %}
-    <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
-    {% if page.series %}<p class="post-series">Part of the series: <em>{{ page.series }}</em></p>{% endif %}
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-meta">
+      <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      <span class="post-meta-sep">|</span>
+      <span class="post-reading-time">{% assign words = content | number_of_words %}{% assign minutes = words | divided_by: 200 %}{% if minutes < 1 %}1{% else %}{{ minutes }}{% endif %} min read</span>
+    </div>
+    {% if page.series %}<p class="post-series">Part of <a href="{{ '/' | relative_url }}">{{ page.series }}</a></p>{% endif %}
   </header>
   <div class="post-content">
     {{ content }}
   </div>
+  {% if page.series and series_posts %}
+  <nav class="series-nav" aria-label="Series navigation">
+    <p class="series-nav-heading">Continue reading</p>
+    <div class="series-nav-links">
+      {% assign prev_part = page.part | minus: 1 %}
+      {% assign next_part = page.part | plus: 1 %}
+      {% for sp in series_posts %}
+        {% if sp.part == prev_part %}
+          <a class="series-nav-link series-nav-link--prev" href="{{ sp.url | relative_url }}">
+            <span class="series-nav-direction">&larr; Previous</span>
+            <span class="series-nav-title">Part {{ sp.part }}: {{ sp.title }}</span>
+          </a>
+        {% endif %}
+      {% endfor %}
+      {% for sp in series_posts %}
+        {% if sp.part == next_part %}
+          <a class="series-nav-link series-nav-link--next" href="{{ sp.url | relative_url }}">
+            <span class="series-nav-direction">Next &rarr;</span>
+            <span class="series-nav-title">Part {{ sp.part }}: {{ sp.title }}</span>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </nav>
+  {% endif %}
 </article>
