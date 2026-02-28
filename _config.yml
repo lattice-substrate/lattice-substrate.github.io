@@ -10,6 +10,7 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
+future: true
 permalink: /blog/:year/:month/:day/:title/
 
 exclude:
