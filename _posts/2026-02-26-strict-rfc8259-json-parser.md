@@ -1,5 +1,4 @@
 ---
----
 layout: post
 title: "What Your JSON Parser Doesn't Reject: Building a Strict RFC 8259 Parser in Go"
 date: 2026-02-26

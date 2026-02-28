@@ -1,5 +1,4 @@
 ---
----
 layout: post
 title: "Shortest Round-Trip: Implementing IEEE 754 to Decimal Conversion in Go"
 date: 2026-02-27

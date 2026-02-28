@@ -1,5 +1,4 @@
 ---
----
 layout: post
 title: "The Small Decisions That Make Software Infrastructure-Grade"
 date: 2026-02-25
